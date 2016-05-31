@@ -43,7 +43,11 @@ module IssuePatch
     def notified_users_with_patch
       notified = []
       notified << notified_users_without_patch
-      notified << customer
+      if customer
+        c = New User
+        c.mail = customer.mail
+        notified << c
+      end
       return notified
     end
   end
