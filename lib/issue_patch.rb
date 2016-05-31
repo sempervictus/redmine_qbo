@@ -28,7 +28,7 @@ module IssuePatch
       belongs_to :qbo_invoice, primary_key: :id
       belongs_to :vehicle
       
-      alias_method_chain :notified_users, :custom_notified_users
+      alias_method_chain :notified_users, :patch
     end
     
   end
@@ -40,9 +40,9 @@ module IssuePatch
   module InstanceMethods
     
     # Add the customer to the email list
-    def notified_users_with_custom_notified_users
-      recipient_list = notified_users_without_custom_notified_users
-      recipient_list << customer
+    def notified_users_with_patch
+      recipient_list = notified_users_without_patch
+      recipient_list += customer
       return recipient_list
     end
   end
