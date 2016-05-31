@@ -30,7 +30,7 @@ class Customer < ActiveRecord::Base
   def email
     pull unless @details
     begin
-      return @details.email_address.address
+      return @details.email_address.address.to_s
     rescue
       return nil
     end
