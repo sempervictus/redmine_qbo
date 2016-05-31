@@ -44,7 +44,7 @@ module IssuePatch
       notified = []
       notified << notified_users_without_patch
       if customer
-        c = New User
+        c = User.new
         c.mail = customer.mail
         notified << c
       end
