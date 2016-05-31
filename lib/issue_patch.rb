@@ -45,7 +45,9 @@ module IssuePatch
       notified << notified_users_without_patch
       if customer
         c = User.new
-        c.email_address = customer.email
+        e = EmailAddress.new
+        e.address = customer.email
+        c.email_address = e
         notified << c
       end
       return notified
