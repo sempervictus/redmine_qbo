@@ -27,6 +27,8 @@ module IssuePatch
       belongs_to :qbo_estimate, primary_key: :id
       belongs_to :qbo_invoice, primary_key: :id
       belongs_to :vehicle
+      
+      alias_method_chain :recipients, :custom_recipients
     end
     
   end
@@ -36,7 +38,18 @@ module IssuePatch
   end
   
   module InstanceMethods
+    
+    def recipients_with_custom_recipients
+      recipient_list = recipients_without_custom_recipients
+      custom_list = []
+      if !self.is_private?
+        custom_list << self.customer 
+      end
+		  recipient_list << custom_list
+      recipient_list.uniq!
   
+      return recipient_list
+    end
   end
   
 end    
