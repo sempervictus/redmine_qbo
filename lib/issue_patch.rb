@@ -41,11 +41,7 @@ module IssuePatch
     
     def recipients_with_custom_recipients
       recipient_list = recipients_without_custom_recipients
-      custom_list = []
-      if !self.is_private? and self.customer
-        custom_list << self.customer 
-      end
-      recipient_list << custom_list
+      recipient_list << self.customer
       recipient_list.uniq!
   
       return recipient_list
