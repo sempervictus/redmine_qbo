@@ -39,11 +39,10 @@ module IssuePatch
   
   module InstanceMethods
     
+    # Add the customer to the email list
     def recipients_with_custom_recipients
       recipient_list = recipients_without_custom_recipients
-      recipient_list << self.customer
-      recipient_list.uniq!
-  
+      recipient_list << customer
       return recipient_list
     end
   end
