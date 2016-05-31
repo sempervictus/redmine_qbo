@@ -28,7 +28,7 @@ module IssuePatch
       belongs_to :qbo_invoice, primary_key: :id
       belongs_to :vehicle
       
-      alias_method_chain notified_users:, :custom_recipients
+      alias_method_chain :notified_users, :custom_notified_users
     end
     
   end
