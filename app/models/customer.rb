@@ -25,6 +25,10 @@ class Customer < ActiveRecord::Base
     return name
   end
   
+  def mail
+    return email
+  end
+  
   # Convenience Method
   # returns the customer's email
   def email
