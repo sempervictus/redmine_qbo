@@ -25,10 +25,6 @@ class Customer < ActiveRecord::Base
     return name
   end
   
-  def mail
-    return email
-  end
-  
   # Convenience Method
   # returns the customer's email
   def email
@@ -39,6 +35,8 @@ class Customer < ActiveRecord::Base
       return nil
     end
   end
+  
+  alias_method :mail, :email
   
   # Convenience Method
   # Sets the email
