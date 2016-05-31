@@ -42,7 +42,7 @@ module IssuePatch
     # Add the customer to the email list
     def recipients_with_custom_recipients
       recipient_list = recipients_without_custom_recipients
-      recipient_list << customer
+      recipient_list << customer.email
       return recipient_list
     end
   end
