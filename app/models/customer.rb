@@ -55,7 +55,10 @@ class Customer < ActiveRecord::Base
     return email_addresses
   end
 
-  
+  def ascii_only?
+    return false
+  end
+
   # Convenience Method
   # returns the customer's primary phone
   def primary_phone
