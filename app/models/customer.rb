@@ -45,6 +45,17 @@ class Customer < ActiveRecord::Base
     @details.email_address = s
   end
   
+  def mail_changed?
+    return false
+  end
+
+  def mails
+    email_addresses = []
+    email_addresses << email
+    return email_addresses
+  end
+
+  
   # Convenience Method
   # returns the customer's primary phone
   def primary_phone
