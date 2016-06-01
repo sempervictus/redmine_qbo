@@ -42,7 +42,7 @@ module IssuePatch
     # Add the customer to the email list
     def notified_users_with_patch
       notified = []
-      notified << notified_users_without_patch
+      #notified << notified_users_without_patch
       notified << customer if customer
       return notified
     end
